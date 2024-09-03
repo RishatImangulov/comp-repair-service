@@ -2,7 +2,10 @@ plugins {
     id 'java'
     id 'org.springframework.boot' version '3.3.3'
     id 'io.spring.dependency-management' version '1.1.6'
+//    id 'org.springframework.boot.docker-compose' version '3.3.3'
 }
+
+
 
 group = 'org.richard'
 version = '0.0.1-SNAPSHOT'
@@ -35,6 +38,12 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }
+
+
+//dockerCompose {
+//    useComposeFiles = ['path/to/your/docker-compose.yml']
+//    // Optional: Define other settings as needed
+//}
 
 tasks.named('test') {
     useJUnitPlatform()

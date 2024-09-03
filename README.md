@@ -12,4 +12,5 @@
    git config --global core.autocrlf false: No conversion.
    git config --global core.autocrlf input: Converts CRLF to LF on commit, but leaves LF as LF.
    ```
-4. 
+4. how I can hide db credentials in compose and in yaml? env file or docker secret file or something else? 
+5. 
