@@ -11,18 +11,19 @@ import java.util.List;
 @Data
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table(name = "advertising")
-public class Advertising {
+@Table(name = "client_status")
+public class ClientStatus {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 64)
-    private String title;
+    @Column(nullable = false, unique = true, length = 64)
+    private String status;
 
     @Column(nullable = false, length = 255)
     private String description;
 
-    @OneToMany(mappedBy = "advertising")
-    private List<Person> people;
+    @Column(nullable = false)
+    @OneToMany(mappedBy = "status")
+    private List<Person> persons;
 }

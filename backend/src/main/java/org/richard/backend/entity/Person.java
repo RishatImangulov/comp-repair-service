@@ -1,7 +1,38 @@
 package org.richard.backend.entity;
 
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.RequiredArgsConstructor;
+
+import java.util.List;
+
+@Entity
+@Data
+@RequiredArgsConstructor
+@AllArgsConstructor
 public class Person {
-    private long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
+    private int phone;
+
+    @ManyToOne
+    @JoinColumn(name = "advertising", foreignKey = @ForeignKey(name = "fk_person_adv_id"))
+    private Advertising advertising;
+
+    @OneToMany(mappedBy = "person")
+    private List<Order> orders;
+
+
+    @ManyToOne
+    @JoinColumn(name = "client_status", foreignKey = @ForeignKey(name = "fk_person_status_id"))
+    private ClientStatus status;
 
 }

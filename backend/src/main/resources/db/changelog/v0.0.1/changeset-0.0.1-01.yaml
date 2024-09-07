@@ -27,6 +27,30 @@ databaseChangeLog:
                   type: varchar(255)
                   constraints:
                     nullable: false
+
+        #  CLIENT STATUS
+        - createTable:
+            tableName: client_status
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: status
+                  type: varchar(64)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
         # PERSON
         - createTable:
             tableName: person
@@ -54,6 +78,13 @@ databaseChangeLog:
                   constraints:
                     foreignKeyName: fk_person_adv_id
                     referencedTableName: advertising
+                    referencedColumnNames: id
+              - column:
+                  name: client_status_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_person_status_id
+                    referencedTableName: client_status
                     referencedColumnNames: id
 
         # OFFICE
