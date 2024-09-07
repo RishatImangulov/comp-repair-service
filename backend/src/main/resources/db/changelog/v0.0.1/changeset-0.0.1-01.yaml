@@ -5,6 +5,29 @@ databaseChangeLog:
       context: developing
       comment: developing main db structure
       changes:
+        # ADVERTISING
+        - createTable:
+            tableName: advertising
+            remarks: info about where from this client
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+        # PERSON
         - createTable:
             tableName: person
             columns:
@@ -25,6 +48,37 @@ databaseChangeLog:
                   type: int
                   constraints:
                     nullable: false
+              - column:
+                  name: advertising
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_person_adv_id
+                    referencedTableName: advertising
+                    referencedColumnNames: id
+
+        # OFFICE
+        - createTable:
+            tableName: office
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: shortname
+                  type: varchar(5)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+        # USER
         - createTable:
             tableName: user
             columns:
@@ -35,3 +89,109 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
                     nullable: false
+              - column:
+                  name: name
+                  type: varchar(64)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: person_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_user_person_id
+                    referencedTableName: person
+                    referencedColumnNames: id
+              - column:
+                  name: office_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_user_office_id
+                    referencedTableName: office
+                    referencedColumnNames: id
+
+        # ORDER
+        - createTable:
+            tableName: order
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: number
+                  type: bigint
+                  constraints:
+                    nullable: false
+              - column:
+                  name: year
+                  type: int
+                  constraints:
+                    nullable: false
+              - column:
+                  name: created_at
+                  type: timestamp
+                  defaultValueComputed: current_timestamp
+              - column:
+                  name: receiver_user
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_order_user_receiver_id
+                    referencedTableName: user
+                    referencedColumnNames: id
+              - column:
+                  name: executor_user
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_order_user_executor_id
+                    referencedTableName: user
+                    referencedColumnNames: id
+              - column:
+                  name: person_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_order_person_id
+                    referencedTableName: person
+                    referencedColumnNames: id
+        - addUniqueConstraint:
+            tableName: order
+            columnNames: year, number
+            constraintName: unique_order_year_number
+
+        #        NOTE
+        - createTable:
+            tableName: note
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: createdDate
+                  type: timestamp
+                  constraints:
+                    nullable: false
+              - column:
+                  name: data
+                  type: varchar(500)
+              - column:
+                  name: order_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_note_order_id
+                    referencedTableName: order
+                    referencedColumnNames: id
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_note_user_id
+                    referencedColumnNames: id
+                    referencedTableName: user
+
+
