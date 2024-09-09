@@ -30,7 +30,6 @@ public class Person {
     @OneToMany(mappedBy = "person")
     private List<Order> orders;
 
-
     @ManyToOne
     @JoinColumn(name = "client_status_id", foreignKey = @ForeignKey(name = "fk_person_status_id"))
     private ClientStatus status;
