@@ -12,7 +12,6 @@ import org.springframework.stereotype.Component;
 @RequiredArgsConstructor
 @Slf4j
 public class PersonMapper {
-    private final PersonRepository personRepository;
 
     public PersonDTO toDto(Person person) {
         return PersonDTO.builder()

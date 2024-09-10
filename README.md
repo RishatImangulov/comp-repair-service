@@ -16,3 +16,5 @@
 5. phone of person - String or Long? Or new Object like {type: mobile, number: 8-999-1234567, preferred - whatsapp text}
 6. am I did it right - about DTO and Mapper for Person ? Can mapper have repository field - or i shouldn't put business logic in mapper?
 7. how i can maintain uniqueness name of person ? in sql or in service. or both? 
+8. dto and mappers for advertising and clientStatus are too much? can i develop Starter for this simple cases?
+9. why number of id increase even when i got 500 error - because there are duplicates ? or it is not a problem? 

@@ -1,5 +1,5 @@
 databaseChangeLog:
   - include:
       file: db/changelog/v0.0.1/changeset-0.0.1-01.yaml
-  - include:
-      file: db/changelog/v0.0.1/changeset-0.0.1-02.yaml
+#  - include:
+#      file: db/changelog/v0.0.1/changeset-0.0.1-02.yaml

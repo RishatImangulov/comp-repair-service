@@ -2,6 +2,7 @@ package org.richard.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -9,6 +10,7 @@ import java.util.List;
 
 @Entity
 @Data
+@Builder
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Table(name = "client_status")
@@ -18,7 +20,7 @@ public class ClientStatus {
     private Long id;
 
     @Column(nullable = false, unique = true, length = 64)
-    private String status;
+    private String title;
 
     @Column(nullable = false, length = 255)
     private String description;

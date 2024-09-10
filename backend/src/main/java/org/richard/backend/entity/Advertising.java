@@ -2,6 +2,7 @@ package org.richard.backend.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.util.List;
 @Entity
 @Data
 @RequiredArgsConstructor
+@Builder
 @AllArgsConstructor
 @Table(name = "advertising")
 public class Advertising {
