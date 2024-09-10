@@ -1,0 +1,11 @@
+databaseChangeLog:
+  - changeSet:
+      id: maintain uniqueness name of Person
+      author: Rishat Imangulov
+      context: developing
+      comment: maintain uniqueness name of Person
+      changes:
+        - addUniqueConstraint:
+            tableName: person
+            columnNames: name
+            constraintName: unique_person_name

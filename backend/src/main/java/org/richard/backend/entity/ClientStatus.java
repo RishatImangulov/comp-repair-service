@@ -24,6 +24,6 @@ public class ClientStatus {
     private String description;
 
     @Column(nullable = false)
-    @OneToMany(mappedBy = "status")
+    @OneToMany(mappedBy = "clientStatus")
     private List<Person> persons;
 }

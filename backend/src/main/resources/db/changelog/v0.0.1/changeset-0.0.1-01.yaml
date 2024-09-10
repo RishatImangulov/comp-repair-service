@@ -69,7 +69,7 @@ databaseChangeLog:
                     nullable: false
               - column:
                   name: phone
-                  type: int
+                  type: bigint
                   constraints:
                     nullable: false
               - column:
