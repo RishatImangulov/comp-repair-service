@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -23,8 +24,8 @@ public class Order {
     @Column(nullable = false)
     private int year;
 
-    @Column(nullable = false, columnDefinition = "TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
-    private java.sql.Timestamp createdAt;
+    @Column(nullable = false, updatable = false)
+    private LocalDateTime createdAt;
 
     @ManyToOne
     @JoinColumn(name = "receiver_user", foreignKey = @ForeignKey(name = "fk_order_user_receiver_id"))
@@ -40,5 +41,13 @@ public class Order {
 
     @OneToMany(mappedBy = "order")
     private List<Note> notes;
+
+    @OneToMany
+    private List<OrderStageChange> orderStageChanges;
+
+    @PrePersist
+    public void prePersist() {
+        createdAt = LocalDateTime.now();
+    }
 
 }
