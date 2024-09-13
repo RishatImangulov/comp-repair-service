@@ -42,7 +42,7 @@ public class Order {
     @OneToMany(mappedBy = "order")
     private List<Note> notes;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<OrderStageChange> orderStageChanges;
 
     @PrePersist

@@ -29,29 +29,6 @@ databaseChangeLog:
                   constraints:
                     nullable: false
 
-        # ORDER STAGE
-        - createTable:
-            tableName: order_stage
-            remarks: stage of order
-            columns:
-              - column:
-                  name: id
-                  type: bigint
-                  autoIncrement: true
-                  constraints:
-                    primaryKey: true
-                    nullable: false
-              - column:
-                  name: title
-                  type: varchar(64)
-                  constraints:
-                    unique: true
-                    nullable: false
-              - column:
-                  name: description
-                  type: varchar(255)
-                  constraints:
-                    nullable: false
 
         #  CLIENT STATUS
         - createTable:
@@ -166,9 +143,38 @@ databaseChangeLog:
                     referencedTableName: office
                     referencedColumnNames: id
 
+
+        # ORDER STAGE
+
+        - createTable:
+            tableName: order_stage
+            remarks: "stage of order - title and description"
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(64)
+                  constraints:
+                    unique: true
+                    nullable: false
+              - column:
+                  name: description
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+
+
+
         # ORDER
         - createTable:
             tableName: order
+            remarks: "main document - is created when the device is accepted"
             columns:
               - column:
                   name: id
@@ -216,9 +222,52 @@ databaseChangeLog:
             columnNames: year, number
             constraintName: unique_order_year_number
 
+        # ORDER STAGE CHANGE
+
+        - createTable:
+
+            tableName: order_stage_change
+            remarks: "line from story of changing order_stage: dataTime+user+stage"
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: edited_at
+                  type: timestamp
+                  constraints:
+                    nullable: false
+
+              - column:
+                  name: order_stage_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_order_stage_change_order_change_id
+                    referencedTableName: order_stage
+                    referencedColumnNames: id
+              - column:
+                  name: order_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_order_stage_change_order_id
+                    referencedTableName: order
+                    referencedColumnNames: id
+              - column:
+                  name: user_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_order_stage_change_user_id
+                    referencedColumnNames: id
+                    referencedTableName: user
+
         #        NOTE
         - createTable:
             tableName: note
+            remarks: "free-form note from user"
             columns:
               - column:
                   name: id

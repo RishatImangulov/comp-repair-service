@@ -25,8 +25,4 @@ public class OrderStage {
     @Column(nullable = false, length = 255)
     private String description;
 
-    @ManyToMany
-    @JoinTable(name = "order",
-    joinColumns = @JoinColumn(name = ))
-    private List<Order> orders;
 }

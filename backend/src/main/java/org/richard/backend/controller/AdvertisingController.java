@@ -17,7 +17,7 @@ import java.util.List;
 public class AdvertisingController {
 
     private final AdvertisingService advertisingService;
-    private final GenericService<Advertising, Long> advertisingGenericService;
+//    private final GenericService<Advertising, Long> advertisingGenericService;
 
 
     @GetMapping
