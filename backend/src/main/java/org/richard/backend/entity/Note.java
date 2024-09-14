@@ -22,7 +22,7 @@ public class Note {
     @Column(length = 500)
     private String data;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY,  optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "order_id", foreignKey = @ForeignKey(name = "fk_note_order_id"))
     private Order order;
 
