@@ -27,10 +27,12 @@ public class OrderStageChange {
     @Column(name = "edited_at")
     private LocalDateTime editedAt;
 
-    @Column(name = "user_id")
+    @ManyToOne
+    @JoinColumn(name = "user_id", foreignKey = @ForeignKey(name = "fk_order_stage_change_user_id"))
     private User user;
 
-    @Column(name = "order_stage_id")
+    @ManyToOne
+    @JoinColumn(name = "order_stage_id", foreignKey = @ForeignKey(name = "fk_order_stage_change_order_change_id"))
     private OrderStage orderStage;
 
     @PrePersist
