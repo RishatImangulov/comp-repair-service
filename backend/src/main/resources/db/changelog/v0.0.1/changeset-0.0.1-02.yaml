@@ -1,11 +1,99 @@
-#databaseChangeLog:
-#  - changeSet:
-#      id: maintain uniqueness name of Person
-#      author: Rishat Imangulov
-#      context: developing
-#      comment: maintain uniqueness name of Person
-#      changes:
-#        - addUniqueConstraint:
-#            tableName: person
-#            columnNames: name
-#            constraintName: unique_person_name
+databaseChangeLog:
+  - changeSet:
+      id: maintain uniqueness name of Person
+      author: Rishat Imangulov
+      context: developing
+      comment: maintain uniqueness name of Person
+      changes:
+        #          PRODUCT CATEGORIES
+        - createTable:
+            tableName: product_categories
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: parent_id
+                  type: BIGINT
+                  constraints:
+                    nullable: true
+        - addForeignKeyConstraint:
+            baseTableName: product_categories
+            baseColumnNames: parent_id
+            constraintName: fk_category_parent
+            referencedTableName: product_categories
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        #        PRODUCT
+        - createTable:
+            tableName: products
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: VARCHAR(512)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: category_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: products
+            baseColumnNames: category_id
+            constraintName: fk_product_category
+            referencedTableName: product_categories
+            referencedColumnNames: id
+            onDelete: CASCADE
+
+        #   PRODUCT IMAGES
+
+        - createTable:
+            tableName: product_images
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: image_path
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: product_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+        - addForeignKeyConstraint:
+            baseTableName: product_images
+            baseColumnNames: product_id
+            constraintName: fk_product_image_product
+            referencedTableName: products
+            referencedColumnNames: id
+            onDelete: CASCADE

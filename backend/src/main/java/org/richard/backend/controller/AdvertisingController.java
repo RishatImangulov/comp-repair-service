@@ -2,9 +2,7 @@ package org.richard.backend.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.richard.backend.dto.AdvertisingDTO;
-import org.richard.backend.entity.Advertising;
 import org.richard.backend.service.AdvertisingService;
-import org.richard.backend.service.GenericService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
