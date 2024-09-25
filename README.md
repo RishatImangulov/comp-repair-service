@@ -19,4 +19,5 @@
 8. dto and mappers for advertising and clientStatus are too much? can i develop Starter for this simple cases?
 9. why number of id increase even when i got 500 error - because there are duplicates ? or it is not a problem? 
 10. can we create unchangeable field for entity in sql? 
-11. 
+11. ![img.png](img.png)
+12. 

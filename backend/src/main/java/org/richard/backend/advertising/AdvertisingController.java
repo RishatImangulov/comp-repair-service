@@ -1,8 +1,6 @@
-package org.richard.backend.controller;
+package org.richard.backend.advertising;
 
 import lombok.RequiredArgsConstructor;
-import org.richard.backend.dto.AdvertisingDTO;
-import org.richard.backend.service.AdvertisingService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

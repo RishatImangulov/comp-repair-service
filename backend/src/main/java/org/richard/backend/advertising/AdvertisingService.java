@@ -1,13 +1,7 @@
-package org.richard.backend.service;
+package org.richard.backend.advertising;
 
 import lombok.RequiredArgsConstructor;
-import org.richard.backend.dto.AdvertisingDTO;
-import org.richard.backend.dto.AdvertisingMapper;
 import org.richard.backend.entity.Advertising;
-import org.richard.backend.entity.Advertising;
-import org.richard.backend.repository.AdvertisingRepository;
-import org.richard.backend.repository.ClientStatusRepository;
-import org.richard.backend.repository.AdvertisingRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

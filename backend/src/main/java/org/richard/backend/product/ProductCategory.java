@@ -15,7 +15,7 @@ import java.util.List;
 @RequiredArgsConstructor
 @AllArgsConstructor
 @Table(name = "product_categories")
-public class Category {
+public class ProductCategory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,13 +24,11 @@ public class Category {
     @Column(nullable = false)
     private String name;
 
-    // Self-referencing relationship to create hierarchical categories
     @ManyToOne
     @JoinColumn(name = "parent_id")
-    private Category parentCategory;
+    private ProductCategory parentProductCategory;
 
-    @OneToMany(mappedBy = "parentCategory", cascade = CascadeType.ALL)
-    private List<Category> subCategories = new ArrayList<>();
+    @OneToMany(mappedBy = "parentProductCategory", cascade = CascadeType.ALL)
+    private List<ProductCategory> subCategories = new ArrayList<>();
 
-    // Getters and Setters
 }

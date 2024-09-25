@@ -1,8 +1,8 @@
 package org.richard.backend.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.richard.backend.dto.PersonDTO;
-import org.richard.backend.service.PersonService;
+import org.richard.backend.person.PersonDTO;
+import org.richard.backend.person.PersonService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

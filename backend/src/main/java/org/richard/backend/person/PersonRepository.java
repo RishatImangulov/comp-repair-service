@@ -1,4 +1,4 @@
-package org.richard.backend.repository;
+package org.richard.backend.person;
 
 import org.richard.backend.entity.Person;
 import org.springframework.data.jpa.repository.JpaRepository;

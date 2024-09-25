@@ -1,13 +1,10 @@
-package org.richard.backend.service;
+package org.richard.backend.person;
 
 import lombok.RequiredArgsConstructor;
-import org.richard.backend.dto.PersonDTO;
-import org.richard.backend.dto.PersonMapper;
 import org.richard.backend.entity.Advertising;
 import org.richard.backend.entity.Person;
-import org.richard.backend.repository.AdvertisingRepository;
-import org.richard.backend.repository.ClientStatusRepository;
-import org.richard.backend.repository.PersonRepository;
+import org.richard.backend.advertising.AdvertisingRepository;
+import org.richard.backend.clientStatus.ClientStatusRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

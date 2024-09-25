@@ -1,11 +1,10 @@
-package org.richard.backend.dto;
+package org.richard.backend.person;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.richard.backend.entity.Advertising;
 import org.richard.backend.entity.ClientStatus;
 import org.richard.backend.entity.Person;
-import org.richard.backend.repository.PersonRepository;
 import org.springframework.stereotype.Component;
 
 @Component

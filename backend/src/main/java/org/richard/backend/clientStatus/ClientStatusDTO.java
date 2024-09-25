@@ -1,4 +1,4 @@
-package org.richard.backend.dto;
+package org.richard.backend.clientStatus;
 
 import lombok.*;
 

@@ -1,8 +1,6 @@
-package org.richard.backend.controller;
+package org.richard.backend.clientStatus;
 
 import lombok.RequiredArgsConstructor;
-import org.richard.backend.dto.ClientStatusDTO;
-import org.richard.backend.service.ClientStatusService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

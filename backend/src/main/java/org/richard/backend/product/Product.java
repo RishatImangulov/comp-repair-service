@@ -24,9 +24,12 @@ public class Product {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false)
+    private String description;
+
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
+    private ProductCategory productCategory;
 
     @OneToMany(mappedBy = "product", cascade = CascadeType.ALL)
     private List<ProductImage> images = new ArrayList<>();

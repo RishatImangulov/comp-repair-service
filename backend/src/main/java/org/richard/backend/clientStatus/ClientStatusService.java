@@ -1,10 +1,7 @@
-package org.richard.backend.service;
+package org.richard.backend.clientStatus;
 
 import lombok.RequiredArgsConstructor;
-import org.richard.backend.dto.ClientStatusDTO;
-import org.richard.backend.dto.ClientStatusMapper;
 import org.richard.backend.entity.ClientStatus;
-import org.richard.backend.repository.ClientStatusRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
